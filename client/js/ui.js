@@ -7,9 +7,18 @@ Template.ui.onCreated( () => {
 });
 
 Template.ui.events( {
-    "click #play-btn": ( ) => {
+    "click #play-btn": () => {
         Session.set("inGame", true);
         Meteor.call("games.play");
         Meteor.subscribe('MyGame');
+    }
+});
+
+Template.ui.helpers({
+    inGame: () => {
+        return Session.get("inGame");
+    },
+    status: () => {
+        
     }
 });
