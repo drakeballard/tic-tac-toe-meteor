@@ -1,20 +1,16 @@
 
   <template name="board">
     <table id="board">
-    <tr>
-      <td class="field"></td>
-      <td class="field"></td>
-      <td class="field"></td>
-    </tr>
-    <tr>
-      <td class="field"></td>
-      <td class="field"></td>
-      <td class="field"></td>
-    </tr>
-    <tr>
-      <td class="field"></td>
-      <td class="field"></td>
-      <td class="field"></td>
-    </tr>
+        {{#each sideLength}}
+            {{#let rowIndex=@index}}
+            <tr>
+                {{#each sideLenth}}
+                <td class="field" id="{{rowIndex}}{{@index}}">
+                    {{{isMarked rowIndex @index}}}
+                </td>
+                {{/each}}
+            </tr>
+            {{/let}}
+         {{/each}}   
     </table>
   </template>
