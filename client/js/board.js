@@ -9,3 +9,9 @@ Template.board.helpers({
         return side;
     }
 });
+
+Template.board.events({
+    "click .selectableField": (event) => {
+      Meteor.call("games.makeMove", event.target.id);
+    }
+  });
